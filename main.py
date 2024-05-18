@@ -29,6 +29,10 @@ def document(name):
 def table(filename):
     return render_template('table.html', filename=filename)
 
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory('file_upload_flask/uploaded_files', filename)
+
 @app.route('/document/<name>/sheet/<list>')
 def get_sheet(name, list):
     files_path = 'file_upload_flask/uploaded_files/'
