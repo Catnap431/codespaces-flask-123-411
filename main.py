@@ -25,6 +25,9 @@ def document(name):
     # return f'{xls.sheet_names}'
     return render_template('document.html', name=name, sheet_names=sheet_names)
 
+@app.route('/table/<filename>')
+def table(filename):
+    return render_template('table.html', filename=filename)
 
 @app.route('/document/<name>/sheet/<list>')
 def get_sheet(name, list):
